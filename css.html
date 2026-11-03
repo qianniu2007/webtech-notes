@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 篇 · Web 学徒手册</title>
+  <meta name="description" content="CSS 学习笔记：选择器、盒模型、Flexbox、Grid 与响应式布局，附带可拖动滑块的实时交互演示。">
+
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta property="og:title" content="CSS 篇 · Web 学徒手册">
+  <meta property="og:description" content="盒模型、Flexbox、Grid 与响应式，拖一拖滑块就懂。">
+  <meta property="og:image" content="https://YOUR-NAME.github.io/webtech-notes/images/og-image.jpg">
+  <meta property="og:url" content="https://YOUR-NAME.github.io/webtech-notes/css.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="index.html">
+        <span class="mark">&lt;/&gt;</span>
+        <span>Web 学徒手册<small>WEBTECH NOTES</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="切换菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="html.html">HTML 篇</a>
+        <a href="css.html" class="active">CSS 篇</a>
+        <a href="javascript.html">JavaScript 篇</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumb"><a href="index.html">首页</a> / CSS 篇</p>
+        <h1>CSS：给骨架化妆</h1>
+        <p>CSS 全称 Cascading Style Sheets（层叠样式表）。颜色、字号、间距、排版、动画，以及"手机上自动变竖排"，全靠它。</p>
+      </div>
+    </section>
+
+    <!-- 1. 三种引入方式 + 语法 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">基本语法</span>
+          <h2>一条规则：选择器 + 一堆声明</h2>
+        </div>
+        <div class="grid grid-2" style="align-items:start;">
+          <div class="reveal">
+            <div class="code-block">
+              <div class="code-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="fname">style.css</span>
+                <button class="copy-btn">复制</button>
+              </div>
+<pre><span class="t-com">/* 选择器 { 属性: 值; } */</span>
+<span class="t-tag">p</span> {
+  <span class="t-attr">color</span>: <span class="t-str">teal</span>;
+  <span class="t-attr">font-size</span>: <span class="t-num">16px</span>;
+  <span class="t-attr">margin</span>: <span class="t-num">0</span>;
+}</pre>
+            </div>
+          </div>
+          <div class="reveal">
+            <h3 style="margin-bottom:12px;">CSS 可以写在哪？</h3>
+            <ul class="feature-list">
+              <li><strong>外部样式表</strong>：单独 .css 文件，用 link 引入（本网站采用，最好维护）</li>
+              <li><strong>内部样式</strong>：写在页面 head 的 style 标签里</li>
+              <li><strong>行内样式</strong>：元素的 style 属性，优先级高但不推荐滥用</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 选择器 -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">选择器</span>
+          <h2>先选中，再改样式</h2>
+        </div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr><th>选择器</th><th>写法</th><th>选中谁</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>标签选择器</td><td><code class="inline">p { }</code></td><td>所有 p 标签</td></tr>
+              <tr><td>类选择器</td><td><code class="inline">.card { }</code></td><td>class="card" 的元素</td></tr>
+              <tr><td>ID 选择器</td><td><code class="inline">#top { }</code></td><td>id="top" 的元素（页面唯一）</td></tr>
+              <tr><td>后代选择器</td><td><code class="inline">nav a { }</code></td><td>nav 里面的所有 a</td></tr>
+              <tr><td>伪类</td><td><code class="inline">a:hover { }</code></td><td>鼠标悬停时的链接</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout info reveal">
+          <strong>层叠与优先级</strong>
+          当多条规则同时命中一个元素，按"谁更具体听谁的"：行内样式 &gt; ID &gt; 类 &gt; 标签；同样具体时，写在后面的生效。这就是"层叠"的含义。
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 盒模型交互演示 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">盒模型 Box Model</span>
+          <h2>每个元素都是一个"四层盒子"</h2>
+          <p>从里到外：内容 content → 内边距 padding → 边框 border → 外边距 margin。拖下面的滑块，看盒子怎么撑大。</p>
+        </div>
+        <div class="grid grid-2" style="align-items:center; gap:36px;">
+          <div class="box-model-stage reveal">
+            <div class="bm-margin" id="bmMargin">
+              <div class="bm-border" id="bmBorder">
+                <div class="bm-padding" id="bmPadding">
+                  <div class="bm-content">content</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal" style="display:grid; gap:18px;">
+            <div class="range-control">
+              <label>外边距 margin（黄色）：<span class="val" id="marginVal">26px</span></label>
+              <input type="range" id="marginRange" min="0" max="60" value="26">
+            </div>
+            <div class="range-control">
+              <label>边框 border（橙色）：<span class="val" id="borderVal">14px</span></label>
+              <input type="range" id="borderRange" min="0" max="40" value="14">
+            </div>
+            <div class="range-control">
+              <label>内边距 padding（绿色）：<span class="val" id="paddingVal">20px</span></label>
+              <input type="range" id="paddingRange" min="0" max="50" value="20">
+            </div>
+            <div class="callout" style="margin:0;">
+              <strong>占多大地方？</strong>
+              元素实际占据宽度 = content + 左右 padding + 左右 border；margin 负责和邻居之间的空隙。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Flexbox 交互演示 -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">Flexbox 弹性布局</span>
+          <h2>一维排版的利器</h2>
+          <p>Flexbox 专门解决"一排东西怎么排、怎么对齐、怎么分配空间"。切换下面的按钮，看三个方块怎么动。</p>
+        </div>
+        <div class="demo reveal">
+          <div class="demo-title">Flex 容器实时演示</div>
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin-bottom:18px;">
+            <div>
+              <p style="font-size:0.82rem; font-weight:600; color:var(--muted); margin-bottom:6px;">方向 flex-direction</p>
+              <div class="seg-control" id="dirControl">
+                <button data-dir="row" class="on">横向 row</button>
+                <button data-dir="column">纵向 column</button>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:0.82rem; font-weight:600; color:var(--muted); margin-bottom:6px;">主轴对齐 justify-content</p>
+              <div class="seg-control" id="justifyControl">
+                <button data-jc="flex-start" class="on">靠左</button>
+                <button data-jc="center">居中</button>
+                <button data-jc="space-between">两端</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex-stage" id="flexStage">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Grid 与响应式 -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2" style="align-items:start; gap:36px;">
+          <div class="reveal">
+            <span class="tag">Grid 网格布局</span>
+            <h2 style="margin:12px 0;">二维排版，像画表格</h2>
+            <p style="color:var(--muted); margin-bottom:16px;">
+              Flexbox 管一排，Grid 同时管行和列。本网站的卡片网格就是用 Grid 加
+              <code class="inline">repeat(auto-fit, minmax(...))</code> 做的，屏幕变窄会自动换行。
+            </p>
+            <div class="code-block">
+              <div class="code-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="fname">grid 写法</span>
+                <button class="copy-btn">复制</button>
+              </div>
+<pre><span class="t-tag">.grid</span> {
+  <span class="t-attr">display</span>: grid;
+  <span class="t-attr">grid-template-columns</span>:
+    repeat(<span class="t-num">3</span>, <span class="t-num">1fr</span>);
+  <span class="t-attr">gap</span>: <span class="t-num">24px</span>;
+}</pre>
+            </div>
+          </div>
+          <div class="reveal">
+            <span class="tag">响应式 Responsive</span>
+            <h2 style="margin:12px 0;">一套代码，适配手机</h2>
+            <p style="color:var(--muted); margin-bottom:16px;">
+              媒体查询 <code class="inline">@media</code> 可以判断屏幕宽度，在窄屏时把三列改成一列、把导航收成汉堡菜单。
+            </p>
+            <div class="code-block">
+              <div class="code-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="fname">媒体查询</span>
+                <button class="copy-btn">复制</button>
+              </div>
+<pre><span class="t-kw">@media</span> (max-width: <span class="t-num">720px</span>) {
+  <span class="t-tag">.grid</span> {
+    <span class="t-attr">grid-template-columns</span>: <span class="t-num">1fr</span>;
+  }
+}</pre>
+            </div>
+            <p style="font-size:0.88rem; color:var(--muted);">把浏览器窗口拖窄，本网站就会实时变形，可以马上验证。</p>
+          </div>
+        </div>
+
+        <div class="callout reveal" style="margin-top:30px;">
+          <strong>小结</strong>
+          CSS 让页面有了颜值和自适应能力。但它还是"静止"的——想让页面响应点击、实时变化，就得请出 JavaScript。
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:26px;" class="reveal">
+          <a href="html.html" class="btn btn-ghost" style="background:#f1f5f9; color:var(--ink);">← 回 HTML 篇</a>
+          <a href="javascript.html" class="btn btn-primary">去 JavaScript 篇 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="mark">&lt;/&gt;</span><span>Web 学徒手册</span>
+          </a>
+          <p>一个学生的 Web 前端学习档案，用最朴素的 HTML、CSS、JavaScript 写成，向所有人开放。</p>
+        </div>
+        <div>
+          <h4>知识模块</h4>
+          <ul>
+            <li><a href="html.html">HTML 篇</a></li>
+            <li><a href="css.html">CSS 篇</a></li>
+            <li><a href="javascript.html">JavaScript 篇</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于</h4>
+          <ul>
+            <li><a href="about.html">关于这个项目</a></li>
+            <li><a href="index.html">回到首页</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Web 学徒手册 · 个人学习项目</span>
+        <span>Glory to every line of hand-written code</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="回到顶部">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/css-demo.js"></script>
+</body>
+</html>
