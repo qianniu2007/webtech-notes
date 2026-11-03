@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web 学徒手册 · 我的 Web 技术学习笔记</title>
+  <meta name="description" content="一个从零开始的 Web 前端学习成果展示：HTML、CSS、JavaScript 知识点、可交互演示与真实代码，全部手写并托管在 GitHub。">
+
+  <!-- 身份标识：favicon 与 app icon -->
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Open Graph 链接分享卡片 -->
+  <meta property="og:title" content="Web 学徒手册">
+  <meta property="og:description" content="从零开始的 Web 前端学习成果展示：HTML、CSS、JavaScript，全部手写。">
+  <meta property="og:image" content="https://YOUR-NAME.github.io/webtech-notes/images/og-image.jpg">
+  <meta property="og:url" content="https://YOUR-NAME.github.io/webtech-notes/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 顶部导航 ===== -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="index.html">
+        <span class="mark">&lt;/&gt;</span>
+        <span>Web 学徒手册<small>WEBTECH NOTES</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="切换菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html" class="active">首页</a>
+        <a href="html.html">HTML 篇</a>
+        <a href="css.html">CSS 篇</a>
+        <a href="javascript.html">JavaScript 篇</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">● BiUH Web Technologies 2026 · 个人项目</span>
+        <h1>从一行 <span class="grad">&lt;h1&gt;Hello&lt;/h1&gt;</span><br>开始，我学会了做网页</h1>
+        <p class="lead">
+          这里是我在 Web 技术课上的成长档案：把学过的 HTML、CSS、JavaScript 重新讲一遍，
+          配上能直接上手玩的交互演示和真实代码。看不懂的地方，就点一下试试。
+        </p>
+        <div class="hero-actions">
+          <a href="html.html" class="btn btn-primary">开始翻笔记 →</a>
+          <a href="about.html" class="btn btn-ghost">这个网站怎么做的？</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num"><span data-count="5">0</span></div><div class="lbl">个手写页面</div></div>
+          <div><div class="num"><span data-count="40">0</span>+</div><div class="lbl">个知识点</div></div>
+          <div><div class="num"><span data-count="8">0</span></div><div class="lbl">个可交互演示</div></div>
+          <div><div class="num"><span data-count="100">0</span>%</div><div class="lbl">纯手写代码</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 学习模块 ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">学习地图</span>
+          <h2>四个模块，搭起整个前端</h2>
+          <p>网页说到底就三件事：HTML 负责骨架，CSS 负责长相，JavaScript 负责让它活起来。下面按顺序点开就行。</p>
+        </div>
+        <div class="grid grid-4">
+          <article class="card module-card reveal">
+            <div class="icon">H</div>
+            <h3>HTML 结构</h3>
+            <p>标签、语义化、表单与链接，用正确的标签讲清楚页面每一块是什么。</p>
+            <a class="go" href="html.html">进入 HTML 篇</a>
+          </article>
+          <article class="card module-card reveal">
+            <div class="icon accent-bg">C</div>
+            <h3>CSS 样式</h3>
+            <p>选择器、盒模型、Flexbox 与 Grid，再加上手机端自适应的响应式布局。</p>
+            <a class="go" href="css.html">进入 CSS 篇</a>
+          </article>
+          <article class="card module-card reveal">
+            <div class="icon">J</div>
+            <h3>JavaScript</h3>
+            <p>变量、函数、DOM 与事件，写几段真正能响应点击和输入的小程序。</p>
+            <a class="go" href="javascript.html">进入 JS 篇</a>
+          </article>
+          <article class="card module-card reveal">
+            <div class="icon accent-bg">G</div>
+            <h3>Git 与上线</h3>
+            <p>用 Git 记录每次改动，推到 GitHub，再用 GitHub Pages 让全世界能打开。</p>
+            <a class="go" href="about.html">看部署过程</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 这个网站的特点 ===== -->
+    <section class="section alt">
+      <div class="container">
+        <div class="grid grid-2" style="align-items:center; gap:44px;">
+          <div class="reveal">
+            <span class="tag">不只是抄笔记</span>
+            <h2 style="margin-bottom:18px;">每个知识点，都能当场验证</h2>
+            <p style="color:var(--muted); margin-bottom:22px;">
+              我不喜欢只看不动的教程。所以这个网站里的演示都是真的：拖一拖滑块看盒模型怎么变，
+              点按钮看 JavaScript 怎么改页面。学没学会，手一伸就知道。
+            </p>
+            <ul class="feature-list">
+              <li>语义化 HTML：header、nav、main、article 各司其职</li>
+              <li>响应式布局：电脑和手机上都能正常阅读</li>
+              <li>真实交互：菜单、计数器、调色板、待办清单</li>
+              <li>完整 Git 历史：记录网站一步步长大的过程</li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <div class="code-block">
+              <div class="code-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="fname">index.html</span>
+                <button class="copy-btn">复制</button>
+              </div>
+<pre><span class="t-com">&lt;!-- 一个最朴素的网页骨架 --&gt;</span>
+<span class="t-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="t-tag">&lt;html</span> <span class="t-attr">lang</span>=<span class="t-str">"zh-CN"</span><span class="t-tag">&gt;</span>
+  <span class="t-tag">&lt;head&gt;</span>
+    <span class="t-tag">&lt;meta</span> <span class="t-attr">charset</span>=<span class="t-str">"UTF-8"</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title&gt;</span>我的第一个网页<span class="t-tag">&lt;/title&gt;</span>
+  <span class="t-tag">&lt;/head&gt;</span>
+  <span class="t-tag">&lt;body&gt;</span>
+    <span class="t-tag">&lt;h1&gt;</span>你好，世界<span class="t-tag">&lt;/h1&gt;</span>
+  <span class="t-tag">&lt;/body&gt;</span>
+<span class="t-tag">&lt;/html&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 学习历程时间线 ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">成长轨迹</span>
+          <h2>我是这样一步步学过来的</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="timeline reveal">
+            <div class="timeline-item">
+              <div class="when">第 1 阶段 · Web 基础</div>
+              <h4>搞懂网页是怎么跑起来的</h4>
+              <p>HTTP、DNS、客户端与服务器，浏览器输入网址后到底发生了什么。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="when">第 2 阶段 · HTML</div>
+              <h4>用标签搭出页面骨架</h4>
+              <p>文档结构、文本、链接、图片、表格、表单，以及语义化写法。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="when">第 3 阶段 · CSS</div>
+              <h4>让页面变得好看又自适应</h4>
+              <p>层叠与优先级、盒模型、Flexbox、Grid 和响应式媒体查询。</p>
+            </div>
+          </div>
+          <div class="timeline reveal">
+            <div class="timeline-item">
+              <div class="when">第 4 阶段 · JavaScript</div>
+              <h4>给网页装上"反应神经"</h4>
+              <p>变量类型、函数、DOM 操作与事件监听，页面开始响应我的操作。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="when">第 5 阶段 · Git &amp; 上线</div>
+              <h4>把代码托管并发布出去</h4>
+              <p>Git 提交、推送到 GitHub，开启 GitHub Pages 得到真实网址。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="when">现在 · 这个网站</div>
+              <h4>把所学整理成自己的作品</h4>
+              <p>独立完成五个页面、多个交互演示，并持续在 GitHub 上更新。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info reveal" style="margin-top:40px;">
+          <strong>小提示：怎么用这个网站？</strong>
+          建议按 HTML → CSS → JavaScript 的顺序读。每个页面都有深色代码块和"演示框"，代码可以一键复制，演示可以直接动手玩。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="mark">&lt;/&gt;</span>
+            <span>Web 学徒手册</span>
+          </a>
+          <p>一个学生的 Web 前端学习档案，用最朴素的 HTML、CSS、JavaScript 写成，向所有人开放。</p>
+        </div>
+        <div>
+          <h4>知识模块</h4>
+          <ul>
+            <li><a href="html.html">HTML 篇</a></li>
+            <li><a href="css.html">CSS 篇</a></li>
+            <li><a href="javascript.html">JavaScript 篇</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于</h4>
+          <ul>
+            <li><a href="about.html">关于这个项目</a></li>
+            <li><a href="index.html">回到首页</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Web 学徒手册 · 个人学习项目</span>
+        <span>Glory to every line of hand-written code</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="回到顶部">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
