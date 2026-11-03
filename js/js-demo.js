@@ -1,10 +1,10 @@
 /* =========================================================
-   JavaScript 页专属交互：计数器 / RGB 调色板 / 待办清单
+   JavaScript page interactions: counter / RGB color picker / to-do list
    ========================================================= */
 (function () {
   "use strict";
 
-  /* ---------- 演示一：计数器 ---------- */
+  /* ---------- Demo 1: counter ---------- */
   let count = 0;
   const counterDisplay = document.getElementById("counterDisplay");
 
@@ -27,7 +27,7 @@
     });
   }
 
-  /* ---------- 演示二：RGB 调色板 ---------- */
+  /* ---------- Demo 2: RGB color picker ---------- */
   const rRange = document.getElementById("rRange");
   if (rRange) {
     const gRange = document.getElementById("gRange");
@@ -50,7 +50,7 @@
     });
   }
 
-  /* ---------- 演示三：待办清单（内存状态，刷新即清空） ---------- */
+  /* ---------- Demo 3: to-do list (in-memory state, cleared on refresh) ---------- */
   const todoText = document.getElementById("todoText");
   const addTodo = document.getElementById("addTodo");
   const todoList = document.getElementById("todoList");
@@ -58,7 +58,7 @@
   let todos = [];
 
   function renderTodos() {
-    // 先清掉除占位提示外的已有任务
+    // Remove existing tasks except the empty-state placeholder
     todoList.querySelectorAll("li").forEach(function (li) {
       if (li !== todoEmpty) li.remove();
     });
@@ -76,7 +76,7 @@
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.checked = todo.done;
-      checkbox.setAttribute("aria-label", "标记完成");
+      checkbox.setAttribute("aria-label", "Mark as done");
       checkbox.addEventListener("change", function () {
         todos[index].done = this.checked;
         renderTodos();
@@ -87,7 +87,7 @@
 
       const del = document.createElement("button");
       del.textContent = "✕";
-      del.setAttribute("aria-label", "删除");
+      del.setAttribute("aria-label", "Delete");
       del.addEventListener("click", function () {
         todos.splice(index, 1);
         renderTodos();

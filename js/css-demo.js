@@ -1,10 +1,10 @@
 /* =========================================================
-   CSS 页专属交互：盒模型滑块 + Flexbox 方向/对齐切换
+   CSS page interactions: box-model sliders + Flexbox direction/alignment
    ========================================================= */
 (function () {
   "use strict";
 
-  /* ---------- 盒模型：三个 range 实时改 padding ---------- */
+  /* ---------- Box model: three ranges update the padding in real time ---------- */
   const marginRange = document.getElementById("marginRange");
   const borderRange = document.getElementById("borderRange");
   const paddingRange = document.getElementById("paddingRange");
@@ -30,7 +30,7 @@
     });
   }
 
-  /* ---------- Flexbox：方向 + 主轴对齐 ---------- */
+  /* ---------- Flexbox: direction + main-axis alignment ---------- */
   const flexStage = document.getElementById("flexStage");
   const dirControl = document.getElementById("dirControl");
   const justifyControl = document.getElementById("justifyControl");

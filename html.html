@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML 篇 · Web 学徒手册</title>
-  <meta name="description" content="HTML 学习笔记：文档结构、常用标签、语义化元素、表格与表单，用通俗的话和真实代码讲清楚网页骨架。">
+  <title>HTML · WebTech Notes</title>
+  <meta name="description" content="HTML learning notes: document structure, common tags, semantic elements, tables and forms, explaining the web skeleton in plain language with real code.">
 
   <link rel="icon" href="images/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <meta property="og:title" content="HTML 篇 · Web 学徒手册">
-  <meta property="og:description" content="文档结构、语义化标签、表格与表单，网页骨架一次讲清。">
+  <meta property="og:title" content="HTML · WebTech Notes">
+  <meta property="og:description" content="Document structure, semantic tags, tables and forms, all in one place.">
   <meta property="og:image" content="https://qianniu2007.github.io/webtech-notes/images/og-image.jpg">
   <meta property="og:url" content="https://qianniu2007.github.io/webtech-notes/html.html">
   <meta property="og:type" content="website">
@@ -23,188 +23,187 @@
     <div class="container nav-bar">
       <a class="brand" href="index.html">
         <span class="mark">&lt;/&gt;</span>
-        <span>Web 学徒手册<small>WEBTECH NOTES</small></span>
+        <span>WebTech Notes<small>LEARNING JOURNAL</small></span>
       </a>
-      <button class="nav-toggle" aria-label="切换菜单" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-links" aria-label="主导航">
-        <a href="index.html">首页</a>
-        <a href="html.html" class="active">HTML 篇</a>
-        <a href="css.html">CSS 篇</a>
-        <a href="javascript.html">JavaScript 篇</a>
-        <a href="about.html">关于</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="html.html" class="active">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- 页面顶部 -->
     <section class="page-hero">
       <div class="container">
-        <p class="crumb"><a href="index.html">首页</a> / HTML 篇</p>
-        <h1>HTML：网页的骨架</h1>
-        <p>HTML 全称 HyperText Markup Language（超文本标记语言）。它不负责好看，只负责告诉浏览器：这里是标题，那里是段落，这张是图片，那个是按钮。</p>
+        <p class="crumb"><a href="index.html">Home</a> / HTML</p>
+        <h1>HTML: The skeleton of the web</h1>
+        <p>HTML stands for HyperText Markup Language. It isn't here to look pretty; it simply tells the browser: this is a heading, that is a paragraph, this is an image and that is a button.</p>
       </div>
     </section>
 
-    <!-- 1. 标签是什么 -->
+    <!-- 1. What is a tag -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">基础概念</span>
-          <h2>标签就是一对"括号指令"</h2>
-          <p>大多数 HTML 元素由开始标签和结束标签组成，内容夹在中间。结束标签多一个斜杠。</p>
+          <span class="tag">Basics</span>
+          <h2>A tag is a pair of "bracket instructions"</h2>
+          <p>Most HTML elements are made of an opening tag and a closing tag, with the content sitting between them. The closing tag adds a slash.</p>
         </div>
         <div class="grid grid-2" style="align-items:start;">
           <div class="reveal">
             <div class="code-block">
               <div class="code-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="fname">标签结构</span>
-                <button class="copy-btn">复制</button>
+                <span class="fname">Tag structure</span>
+                <button class="copy-btn">Copy</button>
               </div>
-<pre><span class="t-tag">&lt;p&gt;</span>这是一段文字<span class="t-tag">&lt;/p&gt;</span>
-<span class="t-com">&lt;!--  ↑开始标签    内容    ↑结束标签 --&gt;</span>
+<pre><span class="t-tag">&lt;p&gt;</span>Some text<span class="t-tag">&lt;/p&gt;</span>
+<span class="t-com">&lt;!--  opening tag   content   closing tag --&gt;</span>
 
-<span class="t-tag">&lt;h1&gt;</span>一级标题<span class="t-tag">&lt;/h1&gt;</span>
-<span class="t-tag">&lt;a</span> <span class="t-attr">href</span>=<span class="t-str">"https://example.com"</span><span class="t-tag">&gt;</span>一个链接<span class="t-tag">&lt;/a&gt;</span></pre>
+<span class="t-tag">&lt;h1&gt;</span>A heading<span class="t-tag">&lt;/h1&gt;</span>
+<span class="t-tag">&lt;a</span> <span class="t-attr">href</span>=<span class="t-str">"https://example.com"</span><span class="t-tag">&gt;</span>A link<span class="t-tag">&lt;/a&gt;</span></pre>
             </div>
             <p style="color:var(--muted); font-size:0.92rem;">
-              像 <code class="inline">&lt;img&gt;</code>、<code class="inline">&lt;meta&gt;</code> 这种没有内容的元素叫"空元素"，不需要结束标签。
+              Elements with no content, such as <code class="inline">&lt;img&gt;</code> and <code class="inline">&lt;meta&gt;</code>, are called "empty elements" and need no closing tag.
             </p>
           </div>
           <div class="reveal">
             <div class="demo">
-              <div class="demo-title">浏览器实际渲染出来</div>
-              <h3 style="margin-bottom:6px;">一级标题</h3>
-              <p style="margin-bottom:10px;">这是一段普通文字。</p>
-              <a href="#" onclick="return false;" style="color:var(--brand-dark); font-weight:600;">一个可点击的链接</a>
+              <div class="demo-title">How the browser renders it</div>
+              <h3 style="margin-bottom:6px;">A heading</h3>
+              <p style="margin-bottom:10px;">A normal paragraph.</p>
+              <a href="#" onclick="return false;" style="color:var(--brand-dark); font-weight:600;">A clickable link</a>
             </div>
             <div class="callout">
-              <strong>属性是给标签的"附加说明"</strong>
-              比如 <code class="inline">href</code> 告诉链接往哪跳，<code class="inline">src</code> 告诉图片去哪找，写成 <code class="inline">名="值"</code> 的形式放在开始标签里。
+              <strong>Attributes are extra notes for a tag</strong>
+              For example, <code class="inline">href</code> tells a link where to go and <code class="inline">src</code> tells an image where to load, written as <code class="inline">name="value"</code> inside the opening tag.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. 文档整体结构 -->
+    <!-- 2. Document structure -->
     <section class="section alt">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">文档结构</span>
-          <h2>每个网页都有固定的"四件套"</h2>
+          <span class="tag">Document Structure</span>
+          <h2>Every page has a fixed set of four pieces</h2>
         </div>
         <div class="reveal">
           <div class="code-block">
             <div class="code-bar">
               <span class="dots"><i></i><i></i><i></i></span>
-              <span class="fname">文档骨架</span>
-              <button class="copy-btn">复制</button>
+              <span class="fname">Page skeleton</span>
+              <button class="copy-btn">Copy</button>
             </div>
-<pre><span class="t-tag">&lt;!DOCTYPE html&gt;</span>            <span class="t-com">&lt;!-- 声明：这是 HTML5 --&gt;</span>
-<span class="t-tag">&lt;html</span> <span class="t-attr">lang</span>=<span class="t-str">"zh-CN"</span><span class="t-tag">&gt;</span>   <span class="t-com">&lt;!-- 整页的根，语言标中文 --&gt;</span>
+<pre><span class="t-tag">&lt;!DOCTYPE html&gt;</span>            <span class="t-com">&lt;!-- Declaration: this is HTML5 --&gt;</span>
+<span class="t-tag">&lt;html</span> <span class="t-attr">lang</span>=<span class="t-str">"en"</span><span class="t-tag">&gt;</span>      <span class="t-com">&lt;!-- Root of the page, language set to English --&gt;</span>
 <span class="t-tag">&lt;head&gt;</span>
-  <span class="t-tag">&lt;meta</span> <span class="t-attr">charset</span>=<span class="t-str">"UTF-8"</span><span class="t-tag">&gt;</span>  <span class="t-com">&lt;!-- 字符编码，避免乱码 --&gt;</span>
-  <span class="t-tag">&lt;title&gt;</span>浏览器标签上的名字<span class="t-tag">&lt;/title&gt;</span>
+  <span class="t-tag">&lt;meta</span> <span class="t-attr">charset</span>=<span class="t-str">"UTF-8"</span><span class="t-tag">&gt;</span>  <span class="t-com">&lt;!-- Character encoding, avoids garbled text --&gt;</span>
+  <span class="t-tag">&lt;title&gt;</span>Name shown on the browser tab<span class="t-tag">&lt;/title&gt;</span>
 <span class="t-tag">&lt;/head&gt;</span>
-<span class="t-tag">&lt;body&gt;</span>                <span class="t-com">&lt;!-- 用户能看到的一切都放这里 --&gt;</span>
+<span class="t-tag">&lt;body&gt;</span>                <span class="t-com">&lt;!-- Everything users can see goes here --&gt;</span>
 <span class="t-tag">&lt;/body&gt;</span>
 <span class="t-tag">&lt;/html&gt;</span></pre>
           </div>
         </div>
         <div class="grid grid-3" style="margin-top:26px;">
           <div class="card reveal">
-            <h3>&lt;head&gt; 头部</h3>
-            <p>用户看不见，放给浏览器和搜索引擎看的信息：编码、标题、图标、样式表和分享卡片。</p>
+            <h3>&lt;head&gt;</h3>
+            <p>Invisible to users; it holds information for the browser and search engines: encoding, title, icons, stylesheets and the share card.</p>
           </div>
           <div class="card reveal">
-            <h3>&lt;body&gt; 主体</h3>
-            <p>页面上所有看得见、点得到的内容，都写在 body 里面。</p>
+            <h3>&lt;body&gt;</h3>
+            <p>All the visible, clickable content on the page is written inside the body.</p>
           </div>
           <div class="card reveal">
-            <h3>嵌套关系</h3>
-            <p>标签可以一层层套，但要"先开后关、成对闭合"，就像括号不能交叉。</p>
+            <h3>Nesting</h3>
+            <p>Tags can be layered, but they must open and close in pairs, like brackets that never cross.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. 语义化 -->
+    <!-- 3. Semantic HTML -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">语义化 HTML</span>
-          <h2>用对标签，比用 div 包一切更重要</h2>
-          <p>语义化就是"见标签知用途"：导航就用 nav，文章就用 article。机器读得懂，盲人的读屏软件也读得懂。</p>
+          <span class="tag">Semantic HTML</span>
+          <h2>Using the right tag beats wrapping everything in divs</h2>
+          <p>Semantics means "know the purpose from the tag": use nav for navigation and article for an article. Machines understand it, and so do screen readers.</p>
         </div>
         <div class="grid grid-2" style="align-items:center; gap:40px;">
           <div class="semantic-demo reveal">
-            <div class="sem-box header">&lt;header&gt; 站点头部 + &lt;nav&gt; 导航</div>
+            <div class="sem-box header">&lt;header&gt; site header + &lt;nav&gt; navigation</div>
             <div class="mid">
-              <div class="sem-box">&lt;main&gt; 主要内容<br>&lt;article&gt; 独立文章</div>
-              <div class="sem-box">&lt;aside&gt; 侧边栏</div>
+              <div class="sem-box">&lt;main&gt; main content<br>&lt;article&gt; a standalone article</div>
+              <div class="sem-box">&lt;aside&gt; sidebar</div>
             </div>
-            <div class="sem-box footer">&lt;footer&gt; 页脚信息</div>
+            <div class="sem-box footer">&lt;footer&gt; footer information</div>
           </div>
           <div class="reveal">
             <ul class="feature-list">
-              <li><strong>header / footer</strong>：页面或区块的头尾</li>
-              <li><strong>nav</strong>：导航链接集合</li>
-              <li><strong>main</strong>：页面独一无二的主内容</li>
-              <li><strong>article</strong>：可独立成篇的内容，如一篇帖子</li>
-              <li><strong>section / aside</strong>：内容分区 / 旁注侧栏</li>
+              <li><strong>header / footer</strong>: the head and tail of a page or block</li>
+              <li><strong>nav</strong>: a collection of navigation links</li>
+              <li><strong>main</strong>: the unique main content of the page</li>
+              <li><strong>article</strong>: self-contained content, such as a post</li>
+              <li><strong>section / aside</strong>: a content block / a side note</li>
             </ul>
             <div class="callout info" style="margin-top:18px;">
-              <strong>为什么要这么讲究？</strong>
-              同样的视觉效果，语义化标签让搜索引擎更容易理解你的页面，也让使用读屏器的人能顺畅浏览——这就是网页的"可访问性"。
+              <strong>Why does it matter?</strong>
+              With the same visual result, semantic tags make the page easier for search engines to understand and let people using screen readers browse smoothly — this is web accessibility.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. 常用内容标签 -->
+    <!-- 4. Common elements -->
     <section class="section alt">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">常用元素</span>
-          <h2>文本、列表、图片与链接</h2>
+          <span class="tag">Common Elements</span>
+          <h2>Text, lists, images and links</h2>
         </div>
         <div class="grid grid-2">
           <div class="reveal">
             <div class="code-block">
               <div class="code-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="fname">列表与图片</span>
-                <button class="copy-btn">复制</button>
+                <span class="fname">Lists and images</span>
+                <button class="copy-btn">Copy</button>
               </div>
-<pre><span class="t-com">&lt;!-- 无序列表 --&gt;</span>
+<pre><span class="t-com">&lt;!-- Unordered list --&gt;</span>
 <span class="t-tag">&lt;ul&gt;</span>
   <span class="t-tag">&lt;li&gt;</span>HTML<span class="t-tag">&lt;/li&gt;</span>
   <span class="t-tag">&lt;li&gt;</span>CSS<span class="t-tag">&lt;/li&gt;</span>
 <span class="t-tag">&lt;/ul&gt;</span>
 
-<span class="t-com">&lt;!-- 图片：alt 是加载失败时的替代文字 --&gt;</span>
+<span class="t-com">&lt;!-- alt is the fallback text if the image fails --&gt;</span>
 <span class="t-tag">&lt;img</span> <span class="t-attr">src</span>=<span class="t-str">"photo.jpg"</span>
-     <span class="t-attr">alt</span>=<span class="t-str">"一张照片"</span><span class="t-tag">&gt;</span></pre>
+     <span class="t-attr">alt</span>=<span class="t-str">"A photo"</span><span class="t-tag">&gt;</span></pre>
             </div>
           </div>
           <div class="reveal">
             <div class="table-wrap">
               <table>
                 <thead>
-                  <tr><th>标签</th><th>用途</th></tr>
+                  <tr><th>Tag</th><th>Purpose</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td><code class="inline">h1–h6</code></td><td>六级标题，h1 一页通常只有一个</td></tr>
-                  <tr><td><code class="inline">p</code></td><td>段落</td></tr>
-                  <tr><td><code class="inline">ul / ol</code></td><td>无序 / 有序列表</td></tr>
-                  <tr><td><code class="inline">a</code></td><td>超链接，靠 href 指定地址</td></tr>
-                  <tr><td><code class="inline">img</code></td><td>图片，靠 src 指定文件</td></tr>
-                  <tr><td><code class="inline">strong / em</code></td><td>强调 / 斜体强调</td></tr>
+                  <tr><td><code class="inline">h1–h6</code></td><td>Six heading levels; usually one h1 per page</td></tr>
+                  <tr><td><code class="inline">p</code></td><td>Paragraph</td></tr>
+                  <tr><td><code class="inline">ul / ol</code></td><td>Unordered / ordered list</td></tr>
+                  <tr><td><code class="inline">a</code></td><td>Hyperlink, address set with href</td></tr>
+                  <tr><td><code class="inline">img</code></td><td>Image, file set with src</td></tr>
+                  <tr><td><code class="inline">strong / em</code></td><td>Strong emphasis / italic emphasis</td></tr>
                 </tbody>
               </table>
             </div>
@@ -213,58 +212,58 @@
       </div>
     </section>
 
-    <!-- 5. 表单 -->
+    <!-- 5. Forms -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">表单 Form</span>
-          <h2>收集用户输入的标准方式</h2>
-          <p>表单本身只负责"长什么样"，真正处理数据通常要后端；本项目不连服务器，所以下面只展示结构。</p>
+          <span class="tag">Forms</span>
+          <h2>The standard way to collect user input</h2>
+          <p>The form itself only handles how things look; processing the data usually needs a back end. This project has no server, so only the structure is shown.</p>
         </div>
         <div class="grid grid-2" style="align-items:start;">
           <div class="reveal">
             <div class="code-block">
               <div class="code-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="fname">form 示例</span>
-                <button class="copy-btn">复制</button>
+                <span class="fname">form example</span>
+                <button class="copy-btn">Copy</button>
               </div>
 <pre><span class="t-tag">&lt;form&gt;</span>
-  <span class="t-tag">&lt;label&gt;</span>昵称
+  <span class="t-tag">&lt;label&gt;</span>Nickname
     <span class="t-tag">&lt;input</span> <span class="t-attr">type</span>=<span class="t-str">"text"</span>
-           <span class="t-attr">placeholder</span>=<span class="t-str">"请输入"</span><span class="t-tag">&gt;</span>
+           <span class="t-attr">placeholder</span>=<span class="t-str">"Type here"</span><span class="t-tag">&gt;</span>
   <span class="t-tag">&lt;/label&gt;</span>
-  <span class="t-tag">&lt;input</span> <span class="t-attr">type</span>=<span class="t-str">"checkbox"</span><span class="t-tag">&gt;</span> 记住我
+  <span class="t-tag">&lt;input</span> <span class="t-attr">type</span>=<span class="t-str">"checkbox"</span><span class="t-tag">&gt;</span> Remember me
   <span class="t-tag">&lt;button</span> <span class="t-attr">type</span>=<span class="t-str">"submit"</span><span class="t-tag">&gt;</span>
-    提交
+    Submit
   <span class="t-tag">&lt;/button&gt;</span>
 <span class="t-tag">&lt;/form&gt;</span></pre>
             </div>
           </div>
           <div class="demo reveal">
-            <div class="demo-title">表单长这样（可点可填）</div>
+            <div class="demo-title">How the form looks (clickable)</div>
             <form onsubmit="return false;" style="display:grid; gap:14px;">
               <label style="display:grid; gap:6px; font-size:0.88rem; font-weight:600;">
-                昵称
-                <input type="text" placeholder="请输入昵称" style="padding:10px 12px; border:1px solid var(--line); border-radius:8px;">
+                Nickname
+                <input type="text" placeholder="Enter a nickname" style="padding:10px 12px; border:1px solid var(--line); border-radius:8px;">
               </label>
               <label style="display:flex; gap:8px; align-items:center; font-size:0.9rem;">
-                <input type="checkbox"> 记住我
+                <input type="checkbox"> Remember me
               </label>
               <div>
-                <button type="submit" class="btn btn-primary btn-sm">提交</button>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
               </div>
             </form>
           </div>
         </div>
 
         <div class="callout reveal" style="margin-top:30px;">
-          <strong>小结</strong>
-          HTML 决定了页面"有什么、是什么"。等骨架搭好，就轮到 CSS 给它化妆了——下一页见。
+          <strong>Summary</strong>
+          HTML decides what the page contains and what each part is. Once the skeleton is ready, it's CSS's turn to add the makeup — see you on the next page.
         </div>
         <div style="display:flex; justify-content:space-between; margin-top:26px;" class="reveal">
-          <a href="index.html" class="btn btn-ghost" style="background:#f1f5f9; color:var(--ink);">← 回首页</a>
-          <a href="css.html" class="btn btn-primary">去 CSS 篇 →</a>
+          <a href="index.html" class="btn btn-ghost" style="background:#f1f5f9; color:var(--ink);">← Home</a>
+          <a href="css.html" class="btn btn-primary">Go to CSS →</a>
         </div>
       </div>
     </section>
@@ -275,34 +274,34 @@
       <div class="footer-grid">
         <div>
           <a class="brand" href="index.html">
-            <span class="mark">&lt;/&gt;</span><span>Web 学徒手册</span>
+            <span class="mark">&lt;/&gt;</span><span>WebTech Notes</span>
           </a>
-          <p>一个学生的 Web 前端学习档案，用最朴素的 HTML、CSS、JavaScript 写成，向所有人开放。</p>
+          <p>A student's front-end learning journal, written in plain HTML, CSS and JavaScript and open to everyone.</p>
         </div>
         <div>
-          <h4>知识模块</h4>
+          <h4>Modules</h4>
           <ul>
-            <li><a href="html.html">HTML 篇</a></li>
-            <li><a href="css.html">CSS 篇</a></li>
-            <li><a href="javascript.html">JavaScript 篇</a></li>
+            <li><a href="html.html">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="javascript.html">JavaScript</a></li>
           </ul>
         </div>
         <div>
-          <h4>关于</h4>
+          <h4>About</h4>
           <ul>
-            <li><a href="about.html">关于这个项目</a></li>
-            <li><a href="index.html">回到首页</a></li>
+            <li><a href="about.html">About this project</a></li>
+            <li><a href="index.html">Back to home</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Web 学徒手册 · 个人学习项目</span>
+        <span>© <span data-year>2026</span> WebTech Notes · Personal learning project</span>
         <span>Glory to every line of hand-written code</span>
       </div>
     </div>
   </footer>
 
-  <button class="to-top" aria-label="回到顶部">↑</button>
+  <button class="to-top" aria-label="Back to top">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,21 +1,21 @@
 /* =========================================================
-   WebTech Notes · 学习成果展示网站 共享样式表
-   纯手写 CSS：变量 + Flexbox + Grid + 响应式
+   WebTech Notes · Shared stylesheet for the learning journal
+   Hand-written CSS: variables + Flexbox + Grid + responsive
    ========================================================= */
 
-/* ---------- 设计变量 ---------- */
+/* ---------- Design variables ---------- */
 :root {
-  --brand: #0d9488;        /* 主色 teal */
+  --brand: #0d9488;        /* primary teal */
   --brand-dark: #0f766e;
   --brand-light: #ccfbf1;
-  --accent: #f97316;       /* 橙色强调 */
+  --accent: #f97316;       /* orange accent */
   --accent-dark: #ea580c;
-  --ink: #1e293b;          /* 正文深灰蓝 */
+  --ink: #1e293b;          /* body text, dark slate blue */
   --muted: #64748b;
   --line: #e2e8f0;
   --bg: #f8fafc;
   --card: #ffffff;
-  --dark: #0f172a;         /* 导航/页脚/代码块 */
+  --dark: #0f172a;         /* nav / footer / code blocks */
   --code-bg: #0f172a;
   --code-ink: #e2e8f0;
   --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
@@ -23,11 +23,11 @@
   --radius: 14px;
   --radius-sm: 8px;
   --maxw: 1140px;
-  --font: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font: "Segoe UI", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
   --mono: "Cascadia Code", "JetBrains Mono", Consolas, Monaco, "Courier New", monospace;
 }
 
-/* ---------- 基础重置 ---------- */
+/* ---------- Basic reset ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -49,7 +49,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 
 .container { width: min(92%, var(--maxw)); margin-inline: auto; }
 
-/* ---------- 顶部导航 ---------- */
+/* ---------- Header navigation ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -98,7 +98,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .nav-links a.active { background: var(--brand); color: #fff; }
 
-/* 汉堡按钮（移动端） */
+/* Hamburger button (mobile) */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -123,7 +123,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ---------- Hero 区 ---------- */
+/* ---------- Hero section ---------- */
 .hero {
   position: relative;
   background: radial-gradient(1200px 500px at 80% -10%, rgba(13, 148, 136, 0.35), transparent),
@@ -134,7 +134,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
   overflow: hidden;
 }
 .hero .eyebrow {
-  display: inline-flex;
+  display:inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.08);
@@ -179,7 +179,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 }
 .hero-stats .lbl { color: var(--muted); font-size: 0.88rem; }
 
-/* 页面内小 hero（子页面顶部） */
+/* In-page mini hero (top of subpages) */
 .page-hero {
   background: var(--dark);
   color: #e2e8f0;
@@ -190,7 +190,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .page-hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 10px; }
 .page-hero p { color: #cbd5e1; max-width: 680px; }
 
-/* ---------- 按钮 ---------- */
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -211,7 +211,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .btn-ghost:hover { background: rgba(255,255,255,0.16); }
 .btn-sm { padding: 8px 16px; font-size: 0.88rem; border-radius: 8px; }
 
-/* ---------- 通用区块 ---------- */
+/* ---------- Generic sections ---------- */
 .section { padding: 68px 0; }
 .section.alt { background: #fff; }
 .section-head { max-width: 720px; margin-bottom: 44px; }
@@ -229,7 +229,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 12px; }
 .section-head p { color: var(--muted); }
 
-/* ---------- 卡片网格 ---------- */
+/* ---------- Card grids ---------- */
 .grid { display: grid; gap: 24px; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -262,11 +262,11 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .card .go::after { content: " →"; transition: margin 0.2s; }
 .card:hover .go::after { margin-left: 4px; }
 
-/* 模块卡片（首页，带编号颜色） */
+/* Module cards (home page, numbered with colors) */
 .module-card { display: flex; flex-direction: column; }
 .module-card .icon.accent-bg { background: #ffedd5; color: var(--accent-dark); }
 
-/* ---------- 代码块 ---------- */
+/* ---------- Code blocks ---------- */
 .code-block {
   position: relative;
   background: var(--code-bg);
@@ -306,7 +306,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
   line-height: 1.7;
   color: var(--code-ink);
 }
-/* 简单的语法高亮（用 span 类手动标注） */
+/* Simple syntax highlighting (manually marked with span classes) */
 .t-tag { color: #7dd3fc; }
 .t-attr { color: #fcd34d; }
 .t-str { color: #86efac; }
@@ -315,7 +315,7 @@ h1, h2, h3, h4 { line-height: 1.3; color: var(--dark); font-weight: 700; }
 .t-fn { color: #fbbf24; }
 .t-num { color: #fca5a5; }
 
-/* 行内代码 */
+/* Inline code */
 code.inline {
   background: #f1f5f9;
   color: var(--accent-dark);
@@ -326,7 +326,7 @@ code.inline {
   font-size: 0.86em;
 }
 
-/* ---------- 演示框（交互 demo） ---------- */
+/* ---------- Demo boxes (interactive demos) ---------- */
 .demo {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -352,7 +352,7 @@ code.inline {
 }
 .demo-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 
-/* ---------- 标签/徽章 ---------- */
+/* ---------- Tags / badges ---------- */
 .badge {
   display: inline-block;
   padding: 3px 11px;
@@ -365,7 +365,7 @@ code.inline {
 .badge.orange { background: #ffedd5; color: var(--accent-dark); }
 .badge.slate { background: #f1f5f9; color: var(--muted); }
 
-/* ---------- 知识点列表 ---------- */
+/* ---------- Feature / knowledge lists ---------- */
 .feature-list { display: grid; gap: 14px; }
 .feature-list li {
   position: relative;
@@ -386,7 +386,7 @@ code.inline {
   font-weight: 700;
 }
 
-/* ---------- 表格 ---------- */
+/* ---------- Tables ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 table { width: 100%; border-collapse: collapse; background: #fff; min-width: 520px; }
 th, td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
@@ -394,7 +394,7 @@ th { background: #f1f5f9; color: var(--dark); font-weight: 700; }
 tbody tr:last-child td { border-bottom: 0; }
 tbody tr:hover { background: #f8fafc; }
 
-/* ---------- 语义化标签示意（HTML 页） ---------- */
+/* ---------- Semantic tag diagram (HTML page) ---------- */
 .semantic-demo {
   border: 2px dashed var(--brand);
   border-radius: var(--radius-sm);
@@ -415,7 +415,7 @@ tbody tr:hover { background: #f8fafc; }
 .semantic-demo .sem-box.footer { background: var(--dark); color: #fdba74; }
 .semantic-demo .mid { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
 
-/* ---------- 盒模型交互演示（CSS 页） ---------- */
+/* ---------- Box model interactive demo (CSS page) ---------- */
 .box-model-stage {
   display: grid;
   place-items: center;
@@ -440,7 +440,7 @@ tbody tr:hover { background: #f8fafc; }
 .range-control input[type=range] { width: 100%; accent-color: var(--brand); }
 .range-control .val { font-family: var(--mono); color: var(--accent-dark); font-weight: 700; }
 
-/* Flexbox 演示 */
+/* Flexbox demo */
 .flex-stage {
   display: flex;
   gap: 10px;
@@ -474,7 +474,7 @@ tbody tr:hover { background: #f8fafc; }
 }
 .seg-control button.on { background: var(--brand); color: #fff; }
 
-/* ---------- JS 页小部件 ---------- */
+/* ---------- JS page widgets ---------- */
 .counter-display {
   font-family: var(--mono);
   font-size: 2.6rem;
@@ -529,7 +529,7 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
 }
 .todo-empty { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 14px; }
 
-/* ---------- 时间线（学习历程） ---------- */
+/* ---------- Timeline (learning journey) ---------- */
 .timeline { position: relative; padding-left: 28px; }
 .timeline::before {
   content: "";
@@ -553,7 +553,7 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
 .timeline-item .when { font-size: 0.8rem; color: var(--accent-dark); font-weight: 700; margin-bottom: 6px; }
 .timeline-item p { color: var(--muted); font-size: 0.92rem; }
 
-/* ---------- 引用/提示框 ---------- */
+/* ---------- Callouts ---------- */
 .callout {
   border-left: 4px solid var(--accent);
   background: #fff7ed;
@@ -566,7 +566,7 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
 .callout.info { border-color: var(--brand); background: #f0fdfa; color: #115e59; }
 .callout strong { display: block; margin-bottom: 4px; }
 
-/* ---------- 页脚 ---------- */
+/* ---------- Footer ---------- */
 .site-footer {
   background: var(--dark);
   color: #94a3b8;
@@ -582,7 +582,7 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
 .site-footer p { font-size: 0.9rem; max-width: 340px; }
 .site-footer h4 { color: #fff; font-size: 0.95rem; margin-bottom: 14px; }
 .site-footer ul li { margin-bottom: 9px; }
-.site-footer a { color: #94a3b8; font-size: 0.9rem; }
+.site-footer a { color: #94a3b8; font-size:0.9rem; }
 .site-footer a:hover { color: #5eead4; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -594,7 +594,7 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
   font-size: 0.84rem;
 }
 
-/* ---------- 回到顶部 ---------- */
+/* ---------- Back to top ---------- */
 .to-top {
   position: fixed;
   right: 24px;
@@ -617,11 +617,11 @@ input[type=range].color-range { accent-color: var(--accent); width: 100%; }
 .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .to-top:hover { background: var(--brand-dark); }
 
-/* ---------- 滚动入场动画 ---------- */
+/* ---------- Scroll reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ---------- 响应式 ---------- */
+/* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }

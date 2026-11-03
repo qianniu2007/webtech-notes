@@ -1,11 +1,11 @@
 /* =========================================================
-   WebTech Notes · 共享脚本
-   汉堡菜单 / 回到顶部 / 入场动画 / 代码复制 / 数字滚动
+   WebTech Notes · Shared script
+   Hamburger menu / back-to-top / reveal animation / code copy / counters
    ========================================================= */
 (function () {
   "use strict";
 
-  /* ---------- 移动端汉堡菜单 ---------- */
+  /* ---------- Mobile hamburger menu ---------- */
   const toggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
   if (toggle && navLinks) {
@@ -14,7 +14,7 @@
       toggle.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    // 点击菜单项后收起
+    // Collapse the menu after a link is clicked
     navLinks.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () {
         navLinks.classList.remove("open");
@@ -23,12 +23,12 @@
     });
   }
 
-  /* ---------- 当前年份 ---------- */
+  /* ---------- Current year ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---------- 回到顶部 ---------- */
+  /* ---------- Back to top ---------- */
   const toTop = document.querySelector(".to-top");
   if (toTop) {
     window.addEventListener("scroll", function () {
@@ -39,7 +39,7 @@
     });
   }
 
-  /* ---------- 滚动入场动画 ---------- */
+  /* ---------- Scroll reveal animation ---------- */
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     const io = new IntersectionObserver(function (entries) {
@@ -55,7 +55,7 @@
     revealEls.forEach(function (el) { el.classList.add("visible"); });
   }
 
-  /* ---------- 代码块：一键复制 ---------- */
+  /* ---------- Code blocks: one-click copy ---------- */
   document.querySelectorAll(".code-block").forEach(function (block) {
     const btn = block.querySelector(".copy-btn");
     const pre = block.querySelector("pre");
@@ -64,24 +64,24 @@
       const text = pre.innerText;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function () {
-          btn.textContent = "已复制 ✓";
-          setTimeout(function () { btn.textContent = "复制"; }, 1600);
+          btn.textContent = "Copied ✓";
+          setTimeout(function () { btn.textContent = "Copy"; }, 1600);
         });
       } else {
-        // 兼容回退
+        // Fallback for older browsers
         const ta = document.createElement("textarea");
         ta.value = text;
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand("copy"); btn.textContent = "已复制 ✓"; }
-        catch (e) { btn.textContent = "复制失败"; }
+        try { document.execCommand("copy"); btn.textContent = "Copied ✓"; }
+        catch (e) { btn.textContent = "Copy failed"; }
         document.body.removeChild(ta);
-        setTimeout(function () { btn.textContent = "复制"; }, 1600);
+        setTimeout(function () { btn.textContent = "Copy"; }, 1600);
       }
     });
   });
 
-  /* ---------- 首页数字滚动动画 ---------- */
+  /* ---------- Home page number counter animation ---------- */
   const counters = document.querySelectorAll("[data-count]");
   if (counters.length && "IntersectionObserver" in window) {
     const animate = function (el) {

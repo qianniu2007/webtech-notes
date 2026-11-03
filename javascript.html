@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript 篇 · Web 学徒手册</title>
-  <meta name="description" content="JavaScript 学习笔记：变量类型、函数、DOM 与事件，附计数器、RGB 调色板和待办清单三个可直接玩的交互应用。">
+  <title>JavaScript · WebTech Notes</title>
+  <meta name="description" content="JavaScript learning notes: variables, functions, the DOM and events, with three playable apps — a counter, an RGB color picker and a to-do list.">
 
   <link rel="icon" href="images/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <meta property="og:title" content="JavaScript 篇 · Web 学徒手册">
-  <meta property="og:description" content="变量、函数、DOM 与事件，三个小应用边玩边学。">
+  <meta property="og:title" content="JavaScript · WebTech Notes">
+  <meta property="og:description" content="Variables, functions, the DOM and events, learned through three small apps.">
   <meta property="og:image" content="https://qianniu2007.github.io/webtech-notes/images/og-image.jpg">
   <meta property="og:url" content="https://qianniu2007.github.io/webtech-notes/javascript.html">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" string="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,17 +23,17 @@
     <div class="container nav-bar">
       <a class="brand" href="index.html">
         <span class="mark">&lt;/&gt;</span>
-        <span>Web 学徒手册<small>WEBTECH NOTES</small></span>
+        <span>WebTech Notes<small>LEARNING JOURNAL</small></span>
       </a>
-      <button class="nav-toggle" aria-label="切换菜单" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-links" aria-label="主导航">
-        <a href="index.html">首页</a>
-        <a href="html.html">HTML 篇</a>
-        <a href="css.html">CSS 篇</a>
-        <a href="javascript.html" class="active">JavaScript 篇</a>
-        <a href="about.html">关于</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="html.html">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="javascript.html" class="active">JavaScript</a>
+        <a href="about.html">About</a>
       </nav>
     </div>
   </header>
@@ -41,46 +41,46 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="crumb"><a href="index.html">首页</a> / JavaScript 篇</p>
-        <h1>JavaScript：让网页活起来</h1>
-        <p>HTML 是骨架，CSS 是长相，JavaScript（简称 JS）则是"反应神经"。点按钮弹出变化、输入实时更新、页面动起来，背后都是它。</p>
+        <p class="crumb"><a href="index.html">Home</a> / JavaScript</p>
+        <h1>JavaScript: Bringing the page to life</h1>
+        <p>HTML is the skeleton and CSS is the looks; JavaScript (JS) is the "reflex". A button that changes something, input that updates live, a page that moves — JS is behind all of it.</p>
       </div>
     </section>
 
-    <!-- 1. 变量与类型 -->
+    <!-- 1. Variables -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">变量与数据类型</span>
-          <h2>用变量给数据起名字</h2>
+          <span class="tag">Variables &amp; Data Types</span>
+          <h2>Giving data a name with variables</h2>
         </div>
         <div class="grid grid-2" style="align-items:start;">
           <div class="reveal">
             <div class="code-block">
               <div class="code-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="fname">变量声明</span>
-                <button class="copy-btn">复制</button>
+                <span class="fname">Declarations</span>
+                <button class="copy-btn">Copy</button>
               </div>
-<pre><span class="t-kw">let</span> name = <span class="t-str">"小明"</span>;      <span class="t-com">// 可改</span>
-<span class="t-kw">const</span> year = <span class="t-num">2026</span>;      <span class="t-com">// 不可重新赋值</span>
-<span class="t-kw">var</span> old = <span class="t-num">1</span>;           <span class="t-com">// 老写法，现在少用</span>
+<pre><span class="t-kw">let</span> name = <span class="t-str">"Sam"</span>;        <span class="t-com">// Can change</span>
+<span class="t-kw">const</span> year = <span class="t-num">2026</span>;        <span class="t-com">// Cannot be reassigned</span>
+<span class="t-kw">var</span> old = <span class="t-num">1</span>;             <span class="t-com">// Old syntax, rarely used now</span>
 
-<span class="t-kw">let</span> isStudent = <span class="t-kw">true</span>;  <span class="t-com">// 布尔</span>
-<span class="t-kw">let</span> scores = [<span class="t-num">90</span>, <span class="t-num">85</span>];  <span class="t-com">// 数组</span></pre>
+<span class="t-kw">let</span> isStudent = <span class="t-kw">true</span>;    <span class="t-com">// Boolean</span>
+<span class="t-kw">let</span> scores = [<span class="t-num">90</span>, <span class="t-num">85</span>];    <span class="t-com">// Array</span></pre>
             </div>
           </div>
           <div class="reveal">
-            <h3 style="margin-bottom:12px;">常见数据类型</h3>
+            <h3 style="margin-bottom:12px;">Common data types</h3>
             <div class="table-wrap">
               <table>
-                <thead><tr><th>类型</th><th>例子</th></tr></thead>
+                <thead><tr><th>Type</th><th>Example</th></tr></thead>
                 <tbody>
-                  <tr><td>字符串 String</td><td><code class="inline">"hello"</code></td></tr>
-                  <tr><td>数字 Number</td><td><code class="inline">42、3.14</code></td></tr>
-                  <tr><td>布尔 Boolean</td><td><code class="inline">true / false</code></td></tr>
-                  <tr><td>数组 Array</td><td><code class="inline">[1, 2, 3]</code></td></tr>
-                  <tr><td>对象 Object</td><td><code class="inline">{a:1}</code></td></tr>
+                  <tr><td>String</td><td><code class="inline">"hello"</code></td></tr>
+                  <tr><td>Number</td><td><code class="inline">42, 3.14</code></td></tr>
+                  <tr><td>Boolean</td><td><code class="inline">true / false</code></td></tr>
+                  <tr><td>Array</td><td><code class="inline">[1, 2, 3]</code></td></tr>
+                  <tr><td>Object</td><td><code class="inline">{a:1}</code></td></tr>
                 </tbody>
               </table>
             </div>
@@ -89,121 +89,121 @@
       </div>
     </section>
 
-    <!-- 2. 函数 -->
+    <!-- 2. Functions -->
     <section class="section alt">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">函数 Function</span>
-          <h2>把一段逻辑打包，反复调用</h2>
+          <span class="tag">Functions</span>
+          <h2>Pack a piece of logic and reuse it</h2>
         </div>
         <div class="grid grid-2" style="align-items:start;">
           <div class="reveal">
             <div class="code-block">
               <div class="code-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="fname">函数写法</span>
-                <button class="copy-btn">复制</button>
+                <span class="fname">Function syntax</span>
+                <button class="copy-btn">Copy</button>
               </div>
-<pre><span class="t-com">// 普通函数：接收参数，返回结果</span>
+<pre><span class="t-com">// A normal function: takes arguments, returns a result</span>
 <span class="t-kw">function</span> <span class="t-fn">add</span>(a, b) {
   <span class="t-kw">return</span> a + b;
 }
 <span class="t-fn">add</span>(<span class="t-num">2</span>, <span class="t-num">3</span>);  <span class="t-com">// 5</span>
 
-<span class="t-com">// 箭头函数（更简洁的写法）</span>
+<span class="t-com">// Arrow function (a more concise form)</span>
 <span class="t-kw">const</span> square = x =&gt; x * x;
 square(<span class="t-num">4</span>); <span class="t-com">// 16</span></pre>
             </div>
           </div>
           <div class="reveal">
             <p style="color:var(--muted); margin-bottom:16px;">
-              函数就像一台"小机器"：从入口喂进参数，它在内部处理，最后吐出一个结果。
-              同样的逻辑写一次，就能在任意地方调用，避免重复代码（DRY 原则）。
+              A function is like a small machine: feed arguments in, it processes them inside, and gives back a result.
+              Write the logic once and call it anywhere, avoiding repeated code (the DRY principle).
             </p>
             <div class="callout info">
-              <strong>事件驱动的核心思路</strong>
-              网页里最常见的模式是："当用户做了某件事（点击、输入），就调用某个函数"。下面三个演示全是这个套路。
+              <strong>The core idea of event-driven code</strong>
+              The most common pattern on a web page is: "when the user does something (click, input), call a function". All three demos below follow this pattern.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. DOM 与事件 + 三个真实演示 -->
+    <!-- 3. DOM & events + three demos -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="tag">DOM 与事件</span>
-          <h2>JavaScript 怎么改网页？</h2>
-          <p>浏览器把页面整理成一棵"DOM 树"，JS 能找到节点、改内容、加样式，再通过 addEventListener 监听用户动作。下面三个小应用就是最好的例子。</p>
+          <span class="tag">DOM &amp; Events</span>
+          <h2>How does JavaScript change the page?</h2>
+          <p>The browser organizes the page into a "DOM tree"; JS can find nodes, change content and add styles, then listen for user actions with addEventListener. The three apps below are the best examples.</p>
         </div>
 
-        <!-- 演示 1：计数器 -->
+        <!-- Demo 1: counter -->
         <div class="demo reveal">
-          <div class="demo-title">演示一 · 计数器：点击改变状态</div>
+          <div class="demo-title">Demo 1 · Counter: state changes on click</div>
           <div class="demo-row" style="justify-content:center;">
-            <button class="btn btn-accent btn-sm" id="minusBtn">− 减</button>
+            <button class="btn btn-accent btn-sm" id="minusBtn">− Minus</button>
             <div class="counter-display" id="counterDisplay">0</div>
-            <button class="btn btn-primary btn-sm" id="plusBtn">加 +</button>
-            <button class="btn btn-sm" style="background:#f1f5f9; color:var(--ink);" id="resetBtn">重置</button>
+            <button class="btn btn-primary btn-sm" id="plusBtn">Plus +</button>
+            <button class="btn btn-sm" style="background:#f1f5f9; color:var(--ink);" id="resetBtn">Reset</button>
           </div>
         </div>
 
-        <!-- 演示 2：RGB 调色板 -->
+        <!-- Demo 2: RGB picker -->
         <div class="demo reveal">
-          <div class="demo-title">演示二 · RGB 调色板：输入实时反映到样式</div>
+          <div class="demo-title">Demo 2 · RGB color picker: input reflected in the style live</div>
           <div class="grid grid-2" style="align-items:center; gap:24px;">
             <div class="color-swatch" id="colorSwatch">rgb(13, 148, 136)</div>
             <div style="display:grid; gap:12px;">
               <div class="range-control">
-                <label>R 红：<span class="val" id="rVal">13</span></label>
+                <label>R: <span class="val" id="rVal">13</span></label>
                 <input type="range" class="color-range" id="rRange" min="0" max="255" value="13">
               </div>
               <div class="range-control">
-                <label>G 绿：<span class="val" id="gVal">148</span></label>
+                <label>G: <span class="val" id="gVal">148</span></label>
                 <input type="range" class="color-range" id="gRange" min="0" max="255" value="148">
               </div>
               <div class="range-control">
-                <label>B 蓝：<span class="val" id="bVal">136</span></label>
+                <label>B: <span class="val" id="bVal">136</span></label>
                 <input type="range" class="color-range" id="bRange" min="0" max="255" value="136">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 演示 3：待办清单 -->
+        <!-- Demo 3: to-do -->
         <div class="demo reveal">
-          <div class="demo-title">演示三 · 待办清单：增、删、勾选（纯前端，不存数据）</div>
+          <div class="demo-title">Demo 3 · To-do list: add, remove and check (front-end only, no data stored)</div>
           <div class="todo-input">
-            <input type="text" id="todoText" placeholder="写点要做的事，回车添加" maxlength="40">
-            <button class="btn btn-primary btn-sm" id="addTodo">添加</button>
+            <input type="text" id="todoText" placeholder="Write a task and press Enter" maxlength="40">
+            <button class="btn btn-primary btn-sm" id="addTodo">Add</button>
           </div>
           <ul class="todo-list" id="todoList">
-            <li class="todo-empty" id="todoEmpty">还没有任务，加一条试试吧</li>
+            <li class="todo-empty" id="todoEmpty">No tasks yet, add one to get started</li>
           </ul>
         </div>
 
         <div class="code-block reveal" style="margin-top:26px;">
           <div class="code-bar">
             <span class="dots"><i></i><i></i><i></i></span>
-            <span class="fname">事件监听的典型写法</span>
-            <button class="copy-btn">复制</button>
+            <span class="fname">Typical event listener</span>
+            <button class="copy-btn">Copy</button>
           </div>
 <pre><span class="t-kw">const</span> btn = document.<span class="t-fn">getElementById</span>(<span class="t-str">"plusBtn"</span>);
 btn.<span class="t-fn">addEventListener</span>(<span class="t-str">"click"</span>, <span class="t-kw">function</span> () {
   count = count + <span class="t-num">1</span>;
   document.<span class="t-fn">getElementById</span>(<span class="t-str">"counterDisplay"</span>)
-    .textContent = count;   <span class="t-com">// 改 DOM，页面立刻更新</span>
+    .textContent = count;   <span class="t-com">// Change the DOM, the page updates at once</span>
 });</pre>
         </div>
 
         <div class="callout reveal" style="margin-top:26px;">
-          <strong>小结</strong>
-          到这里，HTML、CSS、JavaScript 三件套就齐活了：能搭骨架、能化妆、还能响应操作。再加上 Git 与 GitHub，就能把作品发布给全世界。
+          <strong>Summary</strong>
+          Here the three pieces come together: HTML, CSS and JavaScript — a skeleton, the looks, and the ability to respond. With Git and GitHub, the work can be published to the world.
         </div>
         <div style="display:flex; justify-content:space-between; margin-top:26px;" class="reveal">
-          <a href="css.html" class="btn btn-ghost" style="background:#f1f5f9; color:var(--ink);">← 回 CSS 篇</a>
-          <a href="about.html" class="btn btn-primary">去关于页 →</a>
+          <a href="css.html" class="btn btn-ghost" style="background:#f1f5f9; color:var(--ink);">← Back to CSS</a>
+          <a href="about.html" class="btn btn-primary">Go to About →</a>
         </div>
       </div>
     </section>
@@ -214,34 +214,34 @@ btn.<span class="t-fn">addEventListener</span>(<span class="t-str">"click"</span
       <div class="footer-grid">
         <div>
           <a class="brand" href="index.html">
-            <span class="mark">&lt;/&gt;</span><span>Web 学徒手册</span>
+            <span class="mark">&lt;/&gt;</span><span>WebTech Notes</span>
           </a>
-          <p>一个学生的 Web 前端学习档案，用最朴素的 HTML、CSS、JavaScript 写成，向所有人开放。</p>
+          <p>A student's front-end learning journal, written in plain HTML, CSS and JavaScript and open to everyone.</p>
         </div>
         <div>
-          <h4>知识模块</h4>
+          <h4>Modules</h4>
           <ul>
-            <li><a href="html.html">HTML 篇</a></li>
-            <li><a href="css.html">CSS 篇</a></li>
-            <li><a href="javascript.html">JavaScript 篇</a></li>
+            <li><a href="html.html">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="javascript.html">JavaScript</a></li>
           </ul>
         </div>
         <div>
-          <h4>关于</h4>
+          <h4>About</h4>
           <ul>
-            <li><a href="about.html">关于这个项目</a></li>
-            <li><a href="index.html">回到首页</a></li>
+            <li><a href="about.html">About this project</a></li>
+            <li><a href="index.html">Back to home</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Web 学徒手册 · 个人学习项目</span>
+        <span>© <span data-year>2026</span> WebTech Notes · Personal learning project</span>
         <span>Glory to every line of hand-written code</span>
       </div>
     </div>
   </footer>
 
-  <button class="to-top" aria-label="回到顶部">↑</button>
+  <button class="to-top" aria-label="Back to top">↑</button>
   <script src="js/main.js"></script>
   <script src="js/js-demo.js"></script>
 </body>
